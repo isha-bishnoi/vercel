@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanjeev Style Portfolio</title>
+    <title>Yochana Kodam Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -148,6 +148,10 @@
             color: #e0e0e0;
         }
 
+        .socials {
+            margin-top: 2rem;
+        }
+
         .socials a {
             font-size: 1.4rem;
             margin-right: 1rem;
@@ -210,11 +214,9 @@
             display: inline-block;
             background-color: rgb(250, 245, 245);
             color: #000;
-            padding: 0.5rem;
             border-radius: 8px;
+            margin: 0.1rem;
             font-weight: 800;
-            padding-top: 0rem;
-            padding-bottom: 0.5rem;
         }
 
 
@@ -223,6 +225,7 @@
             color: white;
             text-decoration: none;
             margin-top: 1rem;
+            margin: 0.2rem;
             font-weight: 500;
         }
 
@@ -235,89 +238,91 @@
         }
 
         #work {
-  padding: 4rem;
-  max-width: 1200px;
-  margin: auto;
-  margin-top: 4rem;
-}
+            padding: 4rem;
+            max-width: 1200px;
+            margin: auto;
+            margin-top: 4rem;
+        }
 
-.work-vertical-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
+        .work-vertical-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
 
-.project {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
+        .project {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
 
-.project-text {
-  flex: 1 1 400px;
-}
+        .project-text {
+            flex: 1 1 400px;
+        }
 
-.project-image {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 16 / 9; /* Ensures uniform height across all */
-  overflow: hidden;
-  border-radius: 10px;
-}
+        .project-image {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            /* Ensures uniform height across all */
+            overflow: hidden;
+            border-radius: 10px;
+        }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Makes all images fill the box uniformly */
-  display: block;
-  border-radius: 10px;
-}
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Makes all images fill the box uniformly */
+            display: block;
+            border-radius: 10px;
+        }
 
 
-/* Text Styling */
-.project-number {
-  font-size: 2rem;
-  color: white;
-}
+        /* Text Styling */
+        .project-number {
+            font-size: 2rem;
+            color: white;
+        }
 
-.project-title {
-  font-size: 1.8rem;
-  margin: 0.5rem 0;
-  color: white;
-}
+        .project-title {
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            color: white;
+        }
 
-.project-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: white;
-  margin-bottom: 1rem;
-}
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: white;
+            margin-bottom: 1rem;
+        }
 
-.case-study-link {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+        .case-study-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-/* Responsive Handling */
-@media (max-width: 768px) {
-  .project {
-    flex-direction: column;
-    text-align: left;
-  }
+        /* Responsive Handling */
+        @media (max-width: 768px) {
+            .project {
+                flex-direction: column;
+                text-align: left;
+            }
 
-  .project-text,
-  .project-image {
-    flex: 1 1 100%;
-  }
+            .project-text,
+            .project-image {
+                flex: 1 1 100%;
+            }
 
-  #work {
-    padding: 1rem;
-  }
-}
+            #work {
+                padding: 1rem;
+            }
+        }
 
         /* Mobile responsiveness already handled with previous media query */
     </style>
@@ -325,10 +330,10 @@
 
 <body>
     <header class="navbar">
-        <a href="isha.html" style="color: white; text-decoration: none;">Yochana Kodam</a>
+        <a href="index.html" style="color: white; text-decoration: none;">Yochana Kodam</a>
 
         <nav class="nav-links" id="navMenu">
-            <a href="isha.html#work">My Work</a>
+            <a href="index.html#work">My Work</a>
             <a href="#">Resume</a>
             <a href="index2.html">Contact</a>
         </nav>
@@ -345,15 +350,13 @@
             </p>
             <p>Let's build something great together!</p>
             <div class="socials">
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-behance"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/yochana-r-9ba4a9176/"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:yochanakr@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
 
         </div>
         <div class="intro-image">
-            <img src="https://www.exude.in/cdn/shop/products/DSC_2924.jpg?v=1749122101&width=1100"
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5El2CYf9CyPd-TwbXXkZfc3ntSi7-kKv-RhSBDjqnT8ApL0NDzd3AuxYStNpEl0h5iM&usqp=CAU"
                 alt="Sanjeev Sriram" />
         </div>
     </section>
@@ -525,8 +528,8 @@
 
         <p><a href="#">📄 Resume</a></p>
         <div class="socials">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/yochana-r-9ba4a9176/"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:yochanakr@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
     <script>
