@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Betterment Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== Base Reset & Global ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1e3a8a;
+  --accent: #2563eb;
+  --light: #f9fafb;
+  --dark: #111827;
+  --gray: #6b7280;
+  --radius: 10px;
+  --bg-gradient: radial-gradient(circle at top left, #7990db, #fdfbfb);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+/* ===== Container Layout ===== */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+/* ===== Header ===== */
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 var(--radius) var(--radius);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ===== Sections ===== */
+section {
+  margin-bottom: 3rem;
+  animation: slideUp 0.6s ease forwards;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--accent);
+  padding-left: 1rem;
+}
+
+p, li {
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Image ===== */
+.project-image {
+  width: 100%;
+  max-width: 600px;
+  max-height: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 1.5rem auto 0;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.project-image:hover {
+  transform: scale(1.02);
+}
+
+/* ===== Tool Tags ===== */
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.tool-tags span {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease;
+}
+
+.tool-tags span:hover {
+  background-color: var(--accent);
+}
+
+/* ===== Navigation ===== */
+.navigation {
+  margin-top: 3rem;
+}
+
+.back-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  border-color: var(--accent);
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+  border-top: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
+  margin-top: 2rem;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .tool-tags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tool-tags span {
+    width: auto;
+  }
+
+  .header {
+    padding: 2rem 1rem;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===== Contact Section ===== */
+#contact {
+  background-color: #121212;
+  padding: 4rem 3rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 0;
+}
+
+#contact h2 {
+    color: white;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+#contact .email-box {
+  display: inline-block;
+  background-color: rgb(250, 245, 245);
+  color: #000;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 800;
+  margin: 1rem 0;
+}
+
+#contact a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#contact .socials {
+  color: white;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ===== Sticky Navbar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hamburger Menu */
+.hamburger,
+.close-icon {
+  font-size: 1.8rem;
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #121212;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .close-icon {
+    display: none;
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+  }
+
+  .close-icon.active {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" style="color: white; text-decoration: none;">Yochana Kodam</a>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html#work">My Work</a>
+            <a href="https://smallpdf.com/file#s=2db544cf-8552-47d9-ad32-7ca81d26a0f6">Resume</a>
+            <a href="index2.html">Contact</a>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="close-icon" id="closeIcon">&times;</div>
+    </header>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="page-title">Investment Dashboard – UX Case Study</h1>
+      <p class="subtitle">Betterment | New York, NY | Jun 2023 – Present</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="overview">
+      <h2>Project Overview</h2>
+      <p>Redesigned Betterment’s investment dashboard and portfolio summary screens, enhancing financial data visualization and increasing user engagement by 28% across mobile and web platforms.</p>
+      
+    </section>
+
+    <section class="contributions">
+      <h2>Key Contributions</h2>
+      <ul>
+        <li>Led end-to-end design and prototyping of the "Goals-Based Investing" module using Figma, SCSS, and JavaScript.</li>
+        <li>Collaborated with React and Angular developers to ensure pixel-perfect UI implementation using Git/GitHub.</li>
+        <li>Improved accessibility with WCAG 2.1 AA standards and enhanced mobile responsiveness using SCSS.</li>
+        <li>Created high-fidelity prototypes and reusable UI components for React, Vue.js, and Angular.</li>
+        <li>Worked with Product Owners using Jira & Confluence to manage sprints and iterate on user feedback.</li>
+      </ul>
+    </section>
+
+    <section class="tools">
+      <h2>Tools & Technologies</h2>
+      <div class="tool-tags">
+        <span>Figma</span><span>Adobe XD</span><span>HTML5</span><span>CSS3 / SCSS</span><span>JavaScript</span>
+        <span>Git / GitHub</span><span>InVision</span><span>Jira / Confluence</span><span>WCAG 2.1</span>
+      </div>
+    </section>
+
+    <section class="results">
+      <h2>Impact & Results</h2>
+      <p>📈 Boosted user engagement by 28% through better UI hierarchy and mobile-first design.</p>
+      <p>🚀 Improved accessibility and responsiveness, enabling a more inclusive experience.</p>
+      <p>✅ Delivered scalable designs aligned with Material and Atomic Design principles.</p>
+    </section>
+
+    <section class="navigation">
+      <a href="index.html" class="back-link">← Back to Projects</a>
+    </section>
+  </main>
+
+  <section id="contact">
+
+        <h3>Get in touch</h3>
+        <div class="email-box">
+            <a href="mailto:yochanakr@gmail.com" style="color: black; text-decoration: none;">
+                Send Message
+            </a>
+        </div>
+
+        <p><a href="https://smallpdf.com/file#s=2db544cf-8552-47d9-ad32-7ca81d26a0f6">📄 Resume</a></p>
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/yochana-r-9ba4a9176/"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:yochanakr@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const closeIcon = document.getElementById('closeIcon');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.style.display = 'none';
+            closeIcon.classList.add('active');
+        });
+
+        closeIcon.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.style.display = 'block';
+            closeIcon.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>
