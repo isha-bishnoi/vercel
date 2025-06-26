@@ -1,11 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjeev Style Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hamburger & Close Icons */
+        .hamburger,
+        .close-icon {
+            font-size: 1.8rem;
+            display: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #121212;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 2rem;
+                gap: 1.5rem;
+                display: none;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .close-icon {
+                display: none;
+                position: absolute;
+                top: 1.2rem;
+                right: 2rem;
+            }
+
+            .close-icon.active {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 3rem 2rem;
+            background-image: radial-gradient(#202020 1px, transparent 1px);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('https://www.shutterstock.com/shutterstock/videos/1038813914/thumb/1.jpg?ip=x480');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+
+        .intro-text {
+            flex: 1 1 450px;
+            max-width: 600px;
+            padding-right: 2rem;
+        }
+
+        .intro-text h1 {
+            font-size: 2.5rem;
+            margin: 0.4rem 0;
+            color: white;
+        }
+
+        .intro-text h2 {
+            font-size: 1.8rem;
+            color: #aaa;
+        }
+
+        .intro-text p {
+            margin-top: 1rem;
+            color: #ccc;
+        }
+
+        .skills {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        .socials a {
+            font-size: 1.4rem;
+            margin-right: 1rem;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: #00d1b2;
+        }
+
+        .tagline {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Image */
+        .intro-image {
+            flex: 1 1 300px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .intro-image img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .intro-text {
+                padding-right: 0;
+            }
+        }
+
+        #contact {
+            background-color: #121212;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #contact p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        #contact .email-box {
+            display: inline-block;
+            background-color: rgb(250, 245, 245);
+            color: #000;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-weight: 800;
+            padding-top: 0rem;
+            padding-bottom: 0.5rem;
+        }
+
+
+        #contact a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        #contact .socials {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        #work {
+  padding: 4rem;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.work-vertical-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.project-text {
+  flex: 1 1 400px;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9; /* Ensures uniform height across all */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes all images fill the box uniformly */
+  display: block;
+  border-radius: 10px;
+}
+
+
+/* Text Styling */
+.project-number {
+  font-size: 2rem;
+  color: white;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: white;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.case-study-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .project {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .project-text,
+  .project-image {
+    flex: 1 1 100%;
+  }
+
+  #work {
+    padding: 1rem;
+  }
+}
+
+        /* Mobile responsiveness already handled with previous media query */
+    </style>
 </head>
+
 <body>
-    <h1>isha</h1>
+    <header class="navbar">
+        <a href="isha.html" style="color: white; text-decoration: none;">Yochana Kodam</a>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="isha.html#work">My Work</a>
+            <a href="#">Resume</a>
+            <a href="index2.html">Contact</a>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="close-icon" id="closeIcon">&times;</div>
+    </header>
+
+
+    <section class="hero">
+        <div class="intro-text">
+            <h1>Hello, Yochana here! 👋</h1>
+            <p>I’m a ✏️ UI/UX Designer with over 6+ years of experience crafting seamless digital experiences for
+                financial and enterprise platforms. I love turning complex challenges into clean, accessible interfaces.
+            </p>
+            <p>Let's build something great together!</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+        </div>
+        <div class="intro-image">
+            <img src="https://www.exude.in/cdn/shop/products/DSC_2924.jpg?v=1749122101&width=1100"
+                alt="Sanjeev Sriram" />
+        </div>
+    </section>
+
+    <div id="work">
+        <section class="work-vertical-wrapper">
+            <div class="project">
+                <div class="project-text">
+                    <h2 class="project-number">01</h2>
+                    <h3 class="project-title">Investment Dashboard</h3>
+                    <p class="project-description">
+                        Redesigned the investment dashboard for Betterment to enhance financial data visualization and
+                        user interaction. Improved engagement by 28% through better UI hierarchy, responsive layouts,
+                        and accessibility compliance.
+                    </p>
+                    <a href="#" class="case-study-link">View complete UX case study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://api.onlinejain.com/media/elective/mobile_banner/Finance.webp"
+                        alt="Investment Dashboard Design">
+                </div>
+            </div>
+            <div class="project">
+
+                <div class="project-text">
+                    <h2 class="project-number">02</h2>
+                    <h3 class="project-title">HR Portal Modernization</h3>
+                    <p class="project-description">
+                        Designed and modernized a self-service HR portal for a Fortune 500 client at Accenture using
+                        Figma and Adobe XD.
+                        Achieved a 40% reduction in support queries and improved usability for over 20,000 internal
+                        users through clean design,
+                        accessibility compliance, and persona-based workflows.
+                    </p>
+                    <a href="#" class="case-study-link">View complete UX case study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://depositphotos-blog.s3.eu-west-1.amazonaws.com/uploads/2019/04/Depositphotos_209179682_m-2015.jpg"
+                        alt="Flit Taxi App Design">
+                </div>
+
+            </div>
+            <div class="project">
+                <div class="project-text">
+                    <h2 class="project-number">03</h2>
+                    <h3 class="project-title">Mobile Banking App Redesign</h3>
+                    <p class="project-description">
+                        Led the end-to-end UI revamp of IndusInd Bank’s mobile banking app. Enhanced user navigation,
+                        reduced cognitive load, and ensured full WCAG 2.1 compliance. Collaborated with developers to
+                        build responsive interfaces and improved app ratings by 22%.
+                    </p>
+                    <a href="https://www.figma.com/design/L6eModl59e2OhfmVS9c8z5/MOBILE-APP-REDESIGN?node-id=2-2"
+                        class="case-study-link">View complete UX case study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrkS8TeaSB-vI9nipe4WwV1asAwYbjKH7qYToL_MirpV3nNQ8VI-R1M01UjkJXxyz8ZjU&usqp=CAU"
+                        alt="Edufy LMS Design">
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Technical Skills Section -->
+    <section style="padding: 5rem 2rem; background-image: url('https://static.vecteezy.com/system/resources/thumbnails/043/639/714/small_2x/crumpled-and-folded-black-paper-texture-images-for-background-logo-text-template-design-photo.jpg'); background-repeat: no-repeat; background-size: cover;
+  background-position: center; color: white; text-align: center; position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; top: -40%; left: -40%; width: 180%; height: 180%; background: radial-gradient(circle at 40% 40%, #38bdf8 0%, transparent 40%), radial-gradient(circle at 70% 70%, #4f46e5 0%, transparent 40%); opacity: 0.1; animation: skillFloat 20s infinite alternate ease-in-out; z-index: 0;">
+        </div>
+        <style>
+            @keyframes skillFloat {
+                0% {
+                    transform: translate(0, 0);
+                }
+
+                100% {
+                    transform: translate(15%, -10%);
+                }
+            }
+        </style>
+        <div style="position: relative; z-index: 1;">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">Technical Skills</h2>
+            <div
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1000px; margin: auto;">
+                <div style="flex: 1 1 200px;">
+                    <h3 style="margin-bottom: 0.5rem; color: #00d1b2;">Design Tools</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Figma</li>
+                        <li>Adobe XD</li>
+                        <li>Sketch</li>
+                        <li>InVision</li>
+                        <li>Framer</li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 200px;">
+                    <h3 style="margin-bottom: 0.5rem; color: #00d1b2;">Front-end</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>HTML5, CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>TypeScript</li>
+                        <li>React, Vue, Angular</li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 200px;">
+                    <h3 style="margin-bottom: 0.5rem; color: #00d1b2;">UX Research</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>User Interviews</li>
+                        <li>A/B Testing</li>
+                        <li>Heuristic Evaluation</li>
+                        <li>Personas</li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 200px;">
+                    <h3 style="margin-bottom: 0.5rem; color: #00d1b2;">Collaboration</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Jira</li>
+                        <li>Confluence</li>
+                        <li>Git/GitHub</li>
+                        <li>Slack</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+        style="padding: 5rem 2rem; background: linear-gradient(135deg, #1f1f1f, #0f0f0f); color: white; text-align: center; position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; top: -40%; right: -40%; width: 180%; height: 180%; background: radial-gradient(circle at 60% 60%, #170f1f 0%, transparent 40%), radial-gradient(circle at 30% 30%, #a855f7 0%, transparent 40%); opacity: 0.08; animation: eduFloat 25s ease-in-out infinite alternate; z-index: 0;">
+        </div>
+        <style>
+            @keyframes eduFloat {
+                0% {
+                    transform: translate(0, 0);
+                }
+
+                100% {
+                    transform: translate(-10%, 10%);
+                }
+            }
+        </style>
+        <div style="position: relative; z-index: 1;">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">Education</h2>
+            <div style="max-width: 800px; margin: auto;">
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="margin-bottom: 0.5rem;">MS in Computer Science</h3>
+                    <p style="color: #d1d5db;">University of Bridgeport, Connecticut, USA</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 0.5rem;">BTech in Computer Science</h3>
+                    <p style="color: #d1d5db;">Malla Reddy Institute of Technology, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="contact">
+
+        <h2>Get in touch</h2>
+        <div class="email-box">
+            <a href="mailto:yochanakr@gmail.com" style="color: black; text-decoration: none;">
+                Send Message
+            </a>
+        </div>
+
+        <p><a href="#">📄 Resume</a></p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const closeIcon = document.getElementById('closeIcon');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.style.display = 'none';
+            closeIcon.classList.add('active');
+        });
+
+        closeIcon.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.style.display = 'block';
+            closeIcon.classList.remove('active');
+        });
+    </script>
+
 </body>
+
 </html>
